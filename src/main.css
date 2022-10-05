@@ -77,7 +77,7 @@ h4 {
   width: 100%;
   font-size: 1.125rem;
   padding: 1rem 1.5rem;
-  color: white;
+  color: black;
   background-color: whitesmoke;
   border-radius: 0.5rem;
   /* border: 1px solid var(--primary); */
@@ -110,7 +110,7 @@ input[type="checkbox"] {
   color: green;
 }
 
-.bubble {
+/* .bubble {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,7 +136,7 @@ input[type="checkbox"] {
   box-shadow: var(--business-glow);
   border-radius: 50%;
   transition: 0.2s ease-in-out;
-}
+} */
 
 .bubble.personal::after {
   background-color: var(--personal);
@@ -231,4 +231,11 @@ input:checked ~ .bubble::after {
 .task-item.done .task-content input {
   text-decoration: line-through;
   color: rgba(165, 165, 165, 0.752);
+}
+
+.input-section,
+.todo-section {
+  border: 1px solid rgb(47, 47, 47);
+  border-radius: 10px;
+  margin-top: 30px;
 }

@@ -18,27 +18,29 @@
         </form>
       </section>
     </div>
-    <section class="task-list">
-      <h3>Todos</h3>
-      <div class="list">
-        <div
-          v-for="task in tasks"
-          :class="`task-item ${task.completed && 'done'}`"
-        >
-          <label>
-            <input type="checkbox" v-model="task.completed" />
-          </label>
+    <div class="todo-section">
+      <section class="task-list">
+        <h3>Todos</h3>
+        <div class="list">
+          <div
+            v-for="task in tasks"
+            :class="`task-item ${task.completed && 'done'}`"
+          >
+            <label>
+              <input type="checkbox" v-model="task.completed" />
+            </label>
 
-          <div class="task-content">
-            <input type="text" v-model="task.task" />
-          </div>
+            <div class="task-content">
+              <input type="text" v-model="task.task" />
+            </div>
 
-          <div class="actions">
-            <button class="delete" @click="removeTask(task)">Delete</button>
+            <div class="actions">
+              <button class="delete" @click="removeTask(task)">Delete</button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 </template>
 
