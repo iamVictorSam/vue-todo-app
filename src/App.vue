@@ -72,8 +72,8 @@ function deleteTodo(todo) {
 
 watch(
   todos,
-  (newValue) => {
-    localStorage.setItem("todos", JSON.stringify(newValue));
+  (newTodoValue) => {
+    localStorage.setItem("todos", JSON.stringify(newTodoValue));
   },
   { deep: true }
 );
