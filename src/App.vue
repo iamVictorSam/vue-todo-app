@@ -7,7 +7,7 @@
     <div class="input-section">
       <section class="create-todo">
         <form @submit.prevent="addTodo">
-          <h3>What's do you plan on doing?</h3>
+          <h3>What's do you plan on doing🙂?</h3>
           <input
             type="text"
             placeholder="e.g. email your boss"
