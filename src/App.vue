@@ -34,7 +34,7 @@
             </div>
 
             <div class="actions">
-              <button class="delete" @click="removeTodo(todo)">Delete</button>
+              <button class="delete" @click="deleteTodo(todo)">Delete</button>
             </div>
           </div>
         </div>
@@ -66,6 +66,10 @@ function addTodo() {
   text.value = "";
 }
 
+function deleteTodo(todo) {
+  todos.value = todos.value.filter((x) => x !== todo);
+}
+
 watch(
   todos,
   (newValue) => {
@@ -73,10 +77,6 @@ watch(
   },
   { deep: true }
 );
-
-function removeTodo(todo) {
-  todos.value = todos.value.filter((x) => x !== todo);
-}
 
 onMounted(() => {
   todos.value = JSON.parse(localStorage.getItem("todos")) || [];
