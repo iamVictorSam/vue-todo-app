@@ -72,7 +72,7 @@ h4 {
   font-weight: 700;
 }
 
-.create-task input[type="text"] {
+.create-todo input[type="text"] {
   display: block;
   width: 100%;
   font-size: 1.125rem;
@@ -85,14 +85,14 @@ h4 {
   margin-bottom: 1.5rem;
 }
 
-.create-task .cate-option {
+.create-todo .cate-option {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
-.create-task .cate-option label {
+.create-todo .cate-option label {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -149,13 +149,13 @@ input:checked ~ .bubble::after {
   opacity: 1;
 }
 
-.create-task .cate-option label div {
+.create-todo .cate-option label div {
   color: white;
   font-size: 1.125rem;
   margin-top: 1rem;
 }
 
-.create-task input[type="submit"] {
+.create-todo input[type="submit"] {
   display: block;
   width: 100%;
   font-size: 1.125rem;
@@ -168,15 +168,15 @@ input:checked ~ .bubble::after {
   transition: 0.2s ease-in-out;
 }
 
-.create-task input[type="submit"]:hover {
+.create-todo input[type="submit"]:hover {
   opacity: 0.75;
 }
 
-.task-list .list {
+.todo-list .list {
   margin: 1rem 0;
 }
 
-.task-list .task-item {
+.todo-list .todo-item {
   display: flex;
   align-items: center;
   background-color: #17181d;
@@ -186,27 +186,27 @@ input:checked ~ .bubble::after {
   margin-bottom: 1rem;
 }
 
-.task-item label {
+.todo-item label {
   display: block;
   margin-right: 1rem;
   cursor: pointer;
 }
 
-.task-item .task-content {
+.todo-item .todo-content {
   flex: 1 1 0%;
 }
 
-.task-item .task-content input {
+.todo-item .todo-content input {
   color: white;
   font-size: 1.125rem;
 }
 
-.task-item .actions {
+.todo-item .actions {
   display: flex;
   align-items: center;
 }
 
-.task-item .actions button {
+.todo-item .actions button {
   display: block;
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -215,20 +215,20 @@ input:checked ~ .bubble::after {
   transition: 0.2s ease-in-out;
 }
 
-.task-item .actions button:hover {
+.todo-item .actions button:hover {
   opacity: 0.75;
 }
 
-.task-item .actions .edit {
+.todo-item .actions .edit {
   margin-right: 0.5rem;
   background-color: var(--primary);
 }
 
-.task-item .actions .delete {
+.todo-item .actions .delete {
   background-color: var(--danger);
 }
 
-.task-item.done .task-content input {
+.todo-item.done .todo-content input {
   text-decoration: line-through;
   color: rgba(165, 165, 165, 0.752);
 }

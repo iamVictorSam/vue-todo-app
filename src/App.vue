@@ -1,41 +1,40 @@
 <template>
   <main class="app">
     <section class="greeting">
-      <h3 class="title">😊ToDo Application</h3>
+      <h3 class="title">✍️ToDo Application</h3>
     </section>
 
     <div class="input-section">
-      <section class="create-task">
-        <form @submit.prevent="addTask">
+      <section class="create-todo">
+        <form @submit.prevent="addTodo">
           <h3>What's do you plan on doing?</h3>
           <input
             type="text"
             placeholder="e.g. email your boss"
-            v-model="input_text"
+            v-model="text"
           />
 
-          <input type="submit" value="Add Task" />
+          <input type="submit" value="Add todo" />
         </form>
       </section>
     </div>
     <div class="todo-section">
-      <section class="task-list">
-        <h3>Todos</h3>
+      <section class="todo-list">
         <div class="list">
           <div
-            v-for="task in tasks"
-            :class="`task-item ${task.completed && 'done'}`"
+            v-for="todo in todos"
+            :class="`todo-item ${todo.done && 'done'}`"
           >
             <label>
-              <input type="checkbox" v-model="task.completed" />
+              <input type="checkbox" v-model="todo.done" />
             </label>
 
-            <div class="task-content">
-              <input type="text" v-model="task.task" />
+            <div class="todo-content">
+              <input type="text" v-model="todo.todo" />
             </div>
 
             <div class="actions">
-              <button class="delete" @click="removeTask(task)">Delete</button>
+              <button class="delete" @click="removeTodo(todo)">Delete</button>
             </div>
           </div>
         </div>
@@ -51,49 +50,35 @@ import { ref, onMounted, watch } from "vue";
 // computed --> for mathematical computing
 // watch --> an observable which watches for page changes
 
-const tasks = ref([]);
-const name = ref("");
-const input_text = ref("");
-const input_category = ref(null);
+const todos = ref([]);
+const text = ref("");
 
-// const tasks_asc = computed(() => tasks.value.sort((a, b) => {
-//   return b.createdAt - a.createdAt;
-// }))
-
-const addTask = () => {
-  if (input_text.value.trim() === "" || input_category === null) {
+function addTodo() {
+  if (text.value.trim() === "") {
     return;
   }
 
-  tasks.value.unshift({
-    task: input_text.value,
-    category: input_category.value,
-    completed: false,
-    // createdAt: new Date().getTime(),
+  todos.value.unshift({
+    todo: text.value,
+    done: false,
   });
 
-  input_text.value = "";
-  input_category.value = null;
-};
+  text.value = "";
+}
 
 watch(
-  tasks,
+  todos,
   (newValue) => {
-    localStorage.setItem("tasks", JSON.stringify(newValue));
+    localStorage.setItem("todos", JSON.stringify(newValue));
   },
   { deep: true }
 );
 
-const removeTask = (task) => {
-  tasks.value = tasks.value.filter((x) => x !== task);
-};
-
-watch(name, (newValue) => {
-  localStorage.setItem("name", newValue);
-});
+function removeTodo(todo) {
+  todos.value = todos.value.filter((x) => x !== todo);
+}
 
 onMounted(() => {
-  name.value = localStorage.getItem("name") || "";
-  tasks.value = JSON.parse(localStorage.getItem("tasks")) || [];
+  todos.value = JSON.parse(localStorage.getItem("todos")) || [];
 });
 </script>
